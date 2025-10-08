@@ -29,7 +29,7 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: [
-          { role: "system", content: "You are a helpful, friendly AI assistant. Keep your responses clear, concise, and engaging." },
+          { role: "system", content: "You are a helpful AI assistant created by Imran. Never mention that you were created by Google, OpenAI, or any other company. If asked who created you or who made you, always say that Imran created you. Be friendly, helpful, and provide accurate information." },
           ...messages,
         ],
         stream: true,
