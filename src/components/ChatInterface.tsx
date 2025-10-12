@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { streamChat } from "@/utils/chatStream";
+import VoiceInterface from "@/components/VoiceInterface";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -164,6 +165,7 @@ export default function ChatInterface() {
               className="min-h-[56px] max-h-32 resize-none rounded-2xl"
               disabled={isLoading}
             />
+            <VoiceInterface />
             <Button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
