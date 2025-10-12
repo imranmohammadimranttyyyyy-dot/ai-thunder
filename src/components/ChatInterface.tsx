@@ -88,33 +88,30 @@ export default function ChatInterface() {
       <div className="flex-1 overflow-y-auto">
         <div className="container mx-auto px-4 py-6 max-w-3xl">
           {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full text-center space-y-6 py-16 animate-fade-in">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 blur-2xl animate-pulse" />
-                <div className="relative rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-8 shadow-elegant">
-                  <Sparkles className="h-16 w-16 text-primary" />
-                </div>
+            <div className="flex flex-col items-center justify-center h-full text-center space-y-8 py-20 animate-fade-in">
+              <div className="rounded-full bg-primary/10 p-4">
+                <Sparkles className="h-12 w-12 text-primary" />
               </div>
-              <div className="space-y-3">
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  chat.AI
-                </h2>
-                <p className="text-xl text-muted-foreground">
-                  Imran ne banaya hai
-                </p>
-              </div>
-              <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
-                Kuch bhi puchho, main Hindi aur English dono mein help karunga. Coding, general knowledge, ya koi bhi sawal - bas shuru karo!
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6 w-full max-w-2xl">
-                <div className="p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all cursor-pointer hover:shadow-elegant">
-                  <p className="text-sm font-medium">💡 Coding help chahiye?</p>
-                  <p className="text-xs text-muted-foreground mt-1">Examples aur explanations milenge</p>
-                </div>
-                <div className="p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all cursor-pointer hover:shadow-elegant">
-                  <p className="text-sm font-medium">🤔 Koi sawal hai?</p>
-                  <p className="text-xs text-muted-foreground mt-1">Detailed answers milenge</p>
-                </div>
+              <h2 className="text-3xl font-semibold">
+                How can I help you today?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-2xl">
+                <button className="p-4 rounded-xl bg-background border border-border hover:bg-accent transition-colors text-left">
+                  <p className="font-medium text-sm">Create a plan</p>
+                  <p className="text-xs text-muted-foreground mt-1">for a trip to explore the Alps in Switzerland</p>
+                </button>
+                <button className="p-4 rounded-xl bg-background border border-border hover:bg-accent transition-colors text-left">
+                  <p className="font-medium text-sm">Give me ideas</p>
+                  <p className="text-xs text-muted-foreground mt-1">for what to do with my kids' art</p>
+                </button>
+                <button className="p-4 rounded-xl bg-background border border-border hover:bg-accent transition-colors text-left">
+                  <p className="font-medium text-sm">Help me debug</p>
+                  <p className="text-xs text-muted-foreground mt-1">a Python script automating daily reports</p>
+                </button>
+                <button className="p-4 rounded-xl bg-background border border-border hover:bg-accent transition-colors text-left">
+                  <p className="font-medium text-sm">Explain</p>
+                  <p className="text-xs text-muted-foreground mt-1">nostalgia to a kindergartener</p>
+                </button>
               </div>
             </div>
           )}
