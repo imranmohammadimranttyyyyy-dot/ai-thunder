@@ -99,12 +99,24 @@ export class RealtimeChat {
       this.pc.addTrack(ms.getTracks()[0]);
       console.log("Added local audio track");
 
-      // Set up data channel
+      // Set up data channel for receiving events
       this.dc = this.pc.createDataChannel("oai-events");
       this.dc.addEventListener("message", (e) => {
         const event = JSON.parse(e.data);
-        console.log("Received event:", event.type);
+        console.log("Received event:", event.type, event);
         this.onMessage(event);
+      });
+
+      // Send session update after connection is established
+      this.dc.addEventListener("open", () => {
+        console.log("Data channel opened, configuring session...");
+        this.dc?.send(JSON.stringify({
+          type: "session.update",
+          session: {
+            turn_detection: { type: "server_vad" },
+            input_audio_transcription: { model: "whisper-1" }
+          }
+        }));
       });
 
       // Create and set local description
