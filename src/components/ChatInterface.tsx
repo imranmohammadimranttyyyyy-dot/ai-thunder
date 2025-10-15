@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { streamChat } from "@/utils/chatStream";
 import VoiceInterface from "@/components/VoiceInterface";
+import OnlineUsersCounter from "@/components/OnlineUsersCounter";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -77,11 +78,17 @@ export default function ChatInterface() {
     <div className="flex flex-col h-screen bg-gradient-to-b from-background to-accent/5">
       {/* Header */}
       <header className="border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-center gap-3">
-          <Sparkles className="h-7 w-7 text-primary animate-pulse" />
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            chat.AI
-          </h1>
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex-1" />
+          <div className="flex items-center gap-3">
+            <Sparkles className="h-7 w-7 text-primary animate-pulse" />
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+              chat.AI
+            </h1>
+          </div>
+          <div className="flex-1 flex justify-end">
+            <OnlineUsersCounter />
+          </div>
         </div>
       </header>
 
