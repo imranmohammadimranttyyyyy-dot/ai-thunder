@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Send, Loader2, Sparkles, Code, Lightbulb, MessageSquare } from "lucide-react";
+import { Send, Loader2, Sparkles, Code, Lightbulb, MessageSquare, Brain, Globe, Zap, Image, FileText, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -19,7 +19,7 @@ const FEATURE_CARDS = [
   {
     icon: Sparkles,
     title: "Creative Writing",
-    description: "Stories, poems, scripts",
+    description: "कहानियाँ, कविताएँ, स्क्रिप्ट",
     prompt: "Help me write a creative short story about a time traveler",
   },
   {
@@ -33,6 +33,24 @@ const FEATURE_CARDS = [
     title: "Brainstorm Ideas",
     description: "Solutions & strategies",
     prompt: "Give me 5 unique startup ideas for 2024",
+  },
+  {
+    icon: Brain,
+    title: "AI Analysis",
+    description: "Deep insights & reasoning",
+    prompt: "Analyze the pros and cons of remote work culture",
+  },
+  {
+    icon: Globe,
+    title: "Translation",
+    description: "Any language translation",
+    prompt: "Translate 'Hello, how are you?' into Hindi, Spanish, and French",
+  },
+  {
+    icon: Calculator,
+    title: "Math & Logic",
+    description: "Complex calculations",
+    prompt: "Explain the Fibonacci sequence and write code for it",
   },
 ];
 
@@ -185,16 +203,16 @@ const ChatInterface = () => {
                 </p>
 
                 {/* Feature Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto">
                   {FEATURE_CARDS.map((card, idx) => (
                     <button
                       key={idx}
                       onClick={() => handleSend(card.prompt)}
-                      className="group p-4 rounded-xl border border-border bg-card hover:bg-muted/50 transition-all text-left"
+                      className="group p-4 rounded-xl border border-border bg-card hover:bg-muted/50 hover:border-primary/50 transition-all text-left hover:scale-[1.02]"
                     >
-                      <card.icon className="w-6 h-6 text-primary mb-3" />
-                      <h3 className="font-medium text-foreground mb-1">{card.title}</h3>
-                      <p className="text-xs text-muted-foreground">{card.description}</p>
+                      <card.icon className="w-5 h-5 text-primary mb-2" />
+                      <h3 className="font-medium text-foreground text-sm mb-1">{card.title}</h3>
+                      <p className="text-xs text-muted-foreground line-clamp-1">{card.description}</p>
                     </button>
                   ))}
                 </div>
@@ -246,16 +264,16 @@ const ChatInterface = () => {
           </div>
         </ScrollArea>
 
-        {/* Input Area */}
-        <div className="border-t border-border p-4">
+        {/* Input Area - Moved Up */}
+        <div className="border-t border-border p-3 pb-6">
           <div className="max-w-3xl mx-auto">
-            <div className="relative flex items-end gap-2 bg-muted rounded-2xl p-2">
+            <div className="relative flex items-end gap-2 bg-muted/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-border/50">
               <Textarea
                 ref={textareaRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Message chat.AI..."
+                placeholder="Apna message likho..."
                 disabled={isLoading}
                 rows={1}
                 className="flex-1 resize-none border-0 bg-transparent focus-visible:ring-0 min-h-[44px] max-h-[200px] py-3 px-3"
@@ -273,8 +291,8 @@ const ChatInterface = () => {
                 )}
               </Button>
             </div>
-            <p className="text-xs text-center text-muted-foreground mt-3">
-              chat.AI can make mistakes. Consider checking important information.
+            <p className="text-xs text-center text-muted-foreground mt-2">
+              chat.AI बनाया है chat.ai ने • Powered by Advanced AI
             </p>
           </div>
         </div>

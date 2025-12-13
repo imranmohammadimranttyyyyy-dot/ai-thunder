@@ -1,4 +1,4 @@
-import { Plus, MessageSquare, Settings, LogOut, Menu } from "lucide-react";
+import { Plus, MessageSquare, Settings, LogOut, Menu, Sparkles, Zap, Shield, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
@@ -82,6 +82,25 @@ const AppSidebar = ({
             </div>
           </ScrollArea>
 
+          {/* Features Section */}
+          <div className="px-3 py-2 border-t border-border">
+            <p className="px-3 py-2 text-xs font-medium text-muted-foreground">Features</p>
+            <div className="space-y-1">
+              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span>Advanced AI</span>
+              </div>
+              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
+                <Zap className="w-4 h-4 text-yellow-500" />
+                <span>Lightning Fast</span>
+              </div>
+              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
+                <Shield className="w-4 h-4 text-green-500" />
+                <span>Private & Secure</span>
+              </div>
+            </div>
+          </div>
+
           {/* Footer */}
           <div className="p-3 border-t border-border space-y-1">
             <Button
@@ -108,9 +127,9 @@ const AppSidebar = ({
         variant="ghost"
         size="icon"
         onClick={onToggle}
-        className="fixed top-3 left-3 z-50 lg:absolute"
+        className="fixed top-3 left-3 z-50 lg:absolute bg-background/80 backdrop-blur-sm"
       >
-        <Menu className="w-5 h-5" />
+        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </Button>
     </>
   );
