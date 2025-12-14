@@ -83,41 +83,45 @@ const AppSidebar = ({
           </ScrollArea>
 
           {/* Features Section */}
-          <div className="px-3 py-2 border-t border-border">
-            <p className="px-3 py-2 text-xs font-medium text-muted-foreground">Features</p>
-            <div className="space-y-1">
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
-                <Sparkles className="w-4 h-4 text-primary" />
+          <div className="px-2 py-3 border-t border-border/50">
+            <p className="px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold text-muted-foreground/70">Features</p>
+            <div className="space-y-0.5 mt-1">
+              <div className="flex items-center gap-3 px-3 py-2 rounded-md text-xs text-muted-foreground/80">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Sparkles className="w-3 h-3 text-primary" />
+                </div>
                 <span>Advanced AI</span>
               </div>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
-                <Zap className="w-4 h-4 text-yellow-500" />
+              <div className="flex items-center gap-3 px-3 py-2 rounded-md text-xs text-muted-foreground/80">
+                <div className="w-6 h-6 rounded-full bg-yellow-500/10 flex items-center justify-center">
+                  <Zap className="w-3 h-3 text-yellow-500" />
+                </div>
                 <span>Lightning Fast</span>
               </div>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground">
-                <Shield className="w-4 h-4 text-green-500" />
+              <div className="flex items-center gap-3 px-3 py-2 rounded-md text-xs text-muted-foreground/80">
+                <div className="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center">
+                  <Shield className="w-3 h-3 text-green-500" />
+                </div>
                 <span>Private & Secure</span>
               </div>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="p-3 border-t border-border space-y-1">
-            <Button
-              variant="ghost"
-              className="w-full justify-start gap-3 h-10 text-muted-foreground hover:text-foreground"
+          <div className="p-2 border-t border-border/50 space-y-0.5">
+            <button
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
             >
               <Settings className="w-4 h-4" />
-              Settings
-            </Button>
-            <Button
-              variant="ghost"
+              <span>Settings</span>
+            </button>
+            <button
               onClick={onLogout}
-              className="w-full justify-start gap-3 h-10 text-muted-foreground hover:text-foreground hover:bg-destructive/10 hover:text-destructive"
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-sm text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
             >
               <LogOut className="w-4 h-4" />
-              Log out
-            </Button>
+              <span>Log out</span>
+            </button>
           </div>
         </div>
       </aside>
