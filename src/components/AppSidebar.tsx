@@ -39,17 +39,17 @@ const AppSidebar = ({
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed lg:relative z-50 h-full bg-secondary/50 border-r border-border flex flex-col transition-all duration-300",
-          isOpen ? "w-64 translate-x-0" : "w-0 -translate-x-full lg:w-0 lg:translate-x-0"
+          "fixed lg:relative z-50 h-full bg-secondary border-r border-border flex flex-col transition-all duration-300 overflow-hidden",
+          isOpen ? "w-64" : "w-0"
         )}
       >
-        <div className="flex-1 flex flex-col min-w-[256px]">
+        <div className="flex-1 flex flex-col w-64">
           {/* Header */}
-          <div className="p-3 border-b border-border">
+          <div className="p-3 border-b border-border/50 pt-14">
             <Button
               onClick={onNewChat}
-              className="w-full justify-start gap-3 h-11 bg-transparent hover:bg-muted text-foreground border border-border"
-              variant="outline"
+              className="w-full justify-start gap-3 h-10 bg-primary/10 hover:bg-primary/20 text-foreground border-0"
+              variant="ghost"
             >
               <Plus className="w-4 h-4" />
               New chat
@@ -131,7 +131,10 @@ const AppSidebar = ({
         variant="ghost"
         size="icon"
         onClick={onToggle}
-        className="fixed top-3 left-3 z-50 lg:absolute bg-background/80 backdrop-blur-sm"
+        className={cn(
+          "fixed top-3 z-[60] bg-background/90 backdrop-blur-sm border border-border/50 shadow-sm hover:bg-muted transition-all duration-300",
+          isOpen ? "left-[220px]" : "left-3"
+        )}
       >
         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </Button>
