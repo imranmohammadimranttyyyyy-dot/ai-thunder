@@ -78,7 +78,7 @@ const Auth = () => {
         
         if (error) {
           if (error.message.includes("Invalid login credentials")) {
-            throw new Error("Galat email ya password. Kripya check karein.");
+            throw new Error("Email ya password galat hai. Agar account nahi hai to pehle Sign up karein!");
           }
           throw error;
         }
