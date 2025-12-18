@@ -1,9 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Send, Loader2, Sparkles, Code, Lightbulb, MessageSquare, Brain, Globe, Zap, Image, FileText, Calculator } from "lucide-react";
+import { Send, Loader2, Sparkles, Code, Lightbulb, MessageSquare, Brain, Globe, Calculator, MoreVertical, Settings, HelpCircle, Info, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { streamChat } from "@/utils/chatStream";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
@@ -180,10 +187,42 @@ const ChatInterface = () => {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Header */}
-        <header className="h-14 border-b border-border flex items-center justify-center px-4">
+        <header className="h-14 border-b border-border/50 flex items-center justify-between px-4 bg-background/95 backdrop-blur-sm">
+          <div className="flex-1" />
           <div className="flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-primary" />
             <h1 className="font-semibold text-foreground">chat.AI</h1>
+          </div>
+          <div className="flex-1 flex justify-end">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-lg hover:bg-muted">
+                  <MoreVertical className="w-5 h-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem className="gap-3 py-2.5">
+                  <Settings className="w-4 h-4" />
+                  <span>Settings</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-3 py-2.5">
+                  <HelpCircle className="w-4 h-4" />
+                  <span>Help & FAQ</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-3 py-2.5">
+                  <Info className="w-4 h-4" />
+                  <span>About chat.AI</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem 
+                  onClick={handleNewChat}
+                  className="gap-3 py-2.5 text-destructive focus:text-destructive"
+                >
+                  <Trash2 className="w-4 h-4" />
+                  <span>Clear chat</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
